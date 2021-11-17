@@ -3,7 +3,7 @@
  * @param {object} obj
  */
 function solution (obj) {
-    return Object.values(obj)
+  return Object.values(obj)
 }
 
 module.exports = solution

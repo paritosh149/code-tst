@@ -1,4 +1,4 @@
-const got = require('got');
+const got = require('got')
 /**
  *  This function fetches all todos from https://jsonplaceholder.typicode.com/todos
  *  and all users from https://jsonplaceholder.typicode.com/users
@@ -8,24 +8,26 @@ const got = require('got');
  *  Then the function would output [{ username: 'Tom', completed: 0}, { username: 'Jerry', completed: 1}]
  */
 async function solution () {
-    try {
-		const todos = await got('https://jsonplaceholder.typicode.com/todos', {responseType: 'json'})
-        const completedTodos = [...todos.body].filter(todo => todo.completed);
+  try {
+    const todos = await got('https://jsonplaceholder.typicode.com/todos', { responseType: 'json' })
+    const completedTodos = [...todos.body].filter(todo => todo.completed)
 
-		const users =  await got('https://jsonplaceholder.typicode.com/users', {responseType: 'json'});
+    const users = await got('https://jsonplaceholder.typicode.com/users', { responseType: 'json' })
 
-        return [...users.body].map(user => {
-            return {username: user.username, completed: completedTodos.reduce((acc, current) => {
-                if(current.userId === user.id){
-                    return acc + 1
-                }
-                return acc
-            }, 0)
-        }
-        });
-	} catch (error) {
-		console.log('Error', error.response.body);
-	}
+    return [...users.body].map(user => {
+      return {
+        username: user.username,
+        completed: completedTodos.reduce((acc, current) => {
+          if (current.userId === user.id) {
+            return acc + 1
+          }
+          return acc
+        }, 0)
+      }
+    })
+  } catch (error) {
+    console.log('Error', error.response.body)
+  }
 }
 
 module.exports = solution

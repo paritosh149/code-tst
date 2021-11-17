@@ -5,10 +5,10 @@
  * @param {Array<string>} pageData
  */
 function solution (pageNumber, itemsPerPage, pageData) {
-  const startIndex = pageNumber>0?(pageNumber - 1) * itemsPerPage:0
-  if(startIndex>data.length)return null
+  const startIndex = pageNumber > 0 ? (pageNumber - 1) * itemsPerPage : 0
+  if (startIndex > data.length) return null
   const endIndex = startIndex + itemsPerPage
-  return data.filter((dataItem, index) => index>= startIndex && index < endIndex)
+  return data.filter((dataItem, index) => index >= startIndex && index < endIndex)
 }
 
 const data = [

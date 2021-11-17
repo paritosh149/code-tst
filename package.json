@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "jest --verbose",
+    "test:coverage": "jest --coverage",
     "lint:check": "standard",
     "lint:fix": "standard --fix"
   },
