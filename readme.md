@@ -24,6 +24,10 @@
     - EXTRA POINTS:
         - Add extra tests to make the code coverage higher
 
+## Pending 
+
+    - Multiple network calls to be executed asynchronously, later collect the response and continue using Promise.all
+
 ## End Goal
 
 Make all failing tests pass!!
