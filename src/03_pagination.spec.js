@@ -1,5 +1,5 @@
 const { solution, data } = require('./03_pagination')
-
+const { InvalidInputError } = require('./constants')
 test('Test 1 - page 1, 5 items per page', () => {
   // Arrange
   const expected = ['a', 'b', 'c', 'd', 'e']
@@ -74,4 +74,20 @@ test('Test 8 - page -1, 5 items per page', () => {
   const actual = solution(-1, 5, data)
   // Assert
   expect(actual).toEqual(expected)
+})
+
+test('Test 9 - page -1, 0 items per page', () => {
+  // Arrange
+  const expected = []
+  // Act
+  const actual = solution(-1, 0, data)
+  // Assert
+  expect(actual).toEqual(expected)
+})
+
+test('Test 10 - page -1, -6 items per page', () => {
+  // Act
+  const actual = () => solution(-1, -6, data)
+  // Assert
+  expect(actual).toThrow(InvalidInputError)
 })

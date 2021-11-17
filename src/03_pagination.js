@@ -1,3 +1,5 @@
+const { InvalidInputError } = require('./constants')
+
 /**
  *  Returns an array based on the pageNumber and itemsPerPage from pageData
  * @param {number} pageNumber
@@ -5,6 +7,7 @@
  * @param {Array<string>} pageData
  */
 function solution (pageNumber, itemsPerPage, pageData) {
+  if (itemsPerPage < 0) throw InvalidInputError
   const startIndex = pageNumber > 0 ? (pageNumber - 1) * itemsPerPage : 0
   if (startIndex > data.length) return null
   const endIndex = startIndex + itemsPerPage

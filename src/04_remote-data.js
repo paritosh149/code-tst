@@ -27,6 +27,7 @@ async function solution () {
     })
   } catch (error) {
     console.log('Error', error.response.body)
+    throw error
   }
 }
 
